@@ -182,7 +182,7 @@ for (int i = 0;i<s.Length ;i++ ) {
     }
     if (j != 26){
         x = j - key;//x будет отрицательное число
-        if (x < 0){  x = 26 + x ;}//
+        if (x < 0){  x = 26 + x ;}// 
         revers[i] = char_dictionary_lower_ru[x];
     }
 }
