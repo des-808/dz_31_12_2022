@@ -145,10 +145,7 @@ char[] char_dictionary_lower_ru = {'а','б','в','г','д','е','ё','ж','з',
 char[] char_dictionary_upper_ru = {'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
 char[] char_dictionary_lower_en = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 char[] char_dictionary_upper_en = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-//foreach(string i in dictionary_lower_ru){ Write($"{i} "); }WriteLine();
-//foreach(string i in dictionary_upper_ru){ Write($"{i} "); }WriteLine();
-//foreach(string i in dictionary_lower_en){ Write($"{i} "); }WriteLine();
-//foreach(string i in dictionary_upper_en){ Write($"{i} "); }WriteLine();
+
 char[] cipher = text.ToCharArray();
 int x = key;
 int j;
