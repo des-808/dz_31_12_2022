@@ -140,16 +140,11 @@ var rand = new Random();
 //расшифрования.
 WriteLine("Введите текст, который хотите зашифровавать:"); string? text = ReadLine();
 WriteLine("Укажите ключ: "); int key = Convert.ToInt32(ReadLine());
-string lower_ru = "а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я";
-string upper_ru = "А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я";
-string lower_en = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
-string upper_en = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z";
-string[] dictionary_lower_ru = lower_ru.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-string[] dictionary_upper_ru = upper_ru.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-string[] dictionary_lower_en = lower_en.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-string[] dictionary_upper_en = upper_en.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-char[] char_dictionary_lower_ru = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+char[] char_dictionary_lower_ru = {'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'};
+char[] char_dictionary_upper_ru = {'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
+char[] char_dictionary_lower_en = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+char[] char_dictionary_upper_en = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 //foreach(string i in dictionary_lower_ru){ Write($"{i} "); }WriteLine();
 //foreach(string i in dictionary_upper_ru){ Write($"{i} "); }WriteLine();
 //foreach(string i in dictionary_lower_en){ Write($"{i} "); }WriteLine();
@@ -158,13 +153,13 @@ char[] cipher = text.ToCharArray();
 int x = key;
 int j;
 for (int i = 0; i < text.Length; i++){
-    for (j = 0; j < char_dictionary_lower_ru.Length; j++){
-        if (text[i] == char_dictionary_lower_ru[j]) { break; }
+    for (j = 0; j < char_dictionary_lower_en.Length; j++){
+        if (text[i] == char_dictionary_lower_en[j]) { break; }
     }
     if (j != 26){
         x = j + key;
         if (x > 25) x = x - 26;
-        cipher[i] = char_dictionary_lower_ru[x];
+        cipher[i] = char_dictionary_lower_en[x];
     }
 }
 string s = new string(cipher);
@@ -177,13 +172,13 @@ WriteLine(s);
 //int x = key;
 char[] revers = s.ToCharArray();
 for (int i = 0;i<s.Length ;i++ ) {
-    for (j = 0; j < char_dictionary_lower_ru.Length; j++){
-        if (s[i] == char_dictionary_lower_ru[j]) { /*WriteLine(j);*/ break; }
+    for (j = 0; j < char_dictionary_lower_en.Length; j++){
+        if (s[i] == char_dictionary_lower_en[j]) { /*WriteLine(j);*/ break; }
     }
     if (j != 26){
         x = j - key;//x будет отрицательное число
         if (x < 0){  x = 26 + x ;}// 
-        revers[i] = char_dictionary_lower_ru[x];
+        revers[i] = char_dictionary_lower_en[x];
     }
 }
 string rs = new string(revers);
