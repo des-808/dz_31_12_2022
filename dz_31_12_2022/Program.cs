@@ -138,48 +138,48 @@ var rand = new Random();
 //Подробнее тут: https://en.wikipedia.org/wiki/Caesar_
 //Кроме механизма шифровки, реализуйте механизм 
 //расшифрования.
-WriteLine("Введите текст, который хотите зашифровавать:"); string? text = ReadLine();
-WriteLine("Укажите ключ: "); int key = Convert.ToInt32(ReadLine());
+//WriteLine("Введите текст, который хотите зашифровавать:"); string? text = ReadLine();
+//WriteLine("Укажите ключ: "); int key = Convert.ToInt32(ReadLine());
 
-char[] char_dictionary_lower_ru = {'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'};
-char[] char_dictionary_upper_ru = {'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
-char[] char_dictionary_lower_en = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-char[] char_dictionary_upper_en = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+//char[] char_dictionary_lower_ru = {'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'};
+//char[] char_dictionary_upper_ru = {'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
+//char[] char_dictionary_lower_en = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+//char[] char_dictionary_upper_en = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
-char[] cipher = text.ToCharArray();
-int x = key;
-int j;
-for (int i = 0; i < text.Length; i++){
-    for (j = 0; j < char_dictionary_lower_en.Length; j++){
-        if (text[i] == char_dictionary_lower_en[j]) { break; }
-    }
-    if (j != 26){
-        x = j + key;
-        if (x > 25) x = x - 26;
-        cipher[i] = char_dictionary_lower_en[x];
-    }
-}
-string s = new string(cipher);
-WriteLine(s);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-///         abrakadabra ebushki vorobushki wota fack
-//string s = "noenxnqnoen rohfuxv ibebohfuxv jbgn snpx";//key = 13;
-//int key = 3;
-//int j;
+//char[] cipher = text.ToCharArray();
 //int x = key;
-char[] revers = s.ToCharArray();
-for (int i = 0;i<s.Length ;i++ ) {
-    for (j = 0; j < char_dictionary_lower_en.Length; j++){
-        if (s[i] == char_dictionary_lower_en[j]) { /*WriteLine(j);*/ break; }
-    }
-    if (j != 26){
-        x = j - key;//x будет отрицательное число
-        if (x < 0){  x = 26 + x ;}// 
-        revers[i] = char_dictionary_lower_en[x];
-    }
-}
-string rs = new string(revers);
-WriteLine(rs);
+//int j;
+//for (int i = 0; i < text.Length; i++){
+//    for (j = 0; j < char_dictionary_lower_en.Length; j++){
+//        if (text[i] == char_dictionary_lower_en[j]) { break; }
+//    }
+//    if (j != 26){
+//        x = j + key;
+//        if (x > 25) x = x - 26;
+//        cipher[i] = char_dictionary_lower_en[x];
+//    }
+//}
+//string s = new string(cipher);
+//WriteLine(s);
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////         abrakadabra ebushki vorobushki wota fack
+////string s = "noenxnqnoen rohfuxv ibebohfuxv jbgn snpx";//key = 13;
+////int key = 3;
+////int j;
+////int x = key;
+//char[] revers = s.ToCharArray();
+//for (int i = 0;i<s.Length ;i++ ) {
+//    for (j = 0; j < char_dictionary_lower_en.Length; j++){
+//        if (s[i] == char_dictionary_lower_en[j]) { /*WriteLine(j);*/ break; }
+//    }
+//    if (j != 26){
+//        x = j - key;//x будет отрицательное число
+//        if (x < 0){  x = 26 + x ;}// 
+//        revers[i] = char_dictionary_lower_en[x];
+//    }
+//}
+//string rs = new string(revers);
+//WriteLine(rs);
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //Задание 4
 //Создайте приложение, которое производит операции 
@@ -188,8 +188,72 @@ WriteLine(rs);
 //■ Сложение матриц;
 //■ Произведение матриц.
 
+//const int SIZE_MATRICI = 2;
+////int tablica_3_na_3[][3]{{1,2,-1},{3,-1,-1},{-2,2,3}};
+//const int SIZE_MATRICI_COL_A = 3;
+//    const int SIZE_MATRICI_ROW_A = 2;
+//    const int SIZE_MATRICI_COL_B = 2;
+//    const int SIZE_MATRICI_ROW_B = 3;
+//    const int SIZE_MATRICI_COL_C = 3;
+//    const int SIZE_MATRICI_ROW_C = 3;
+
+//    int[,] matrica_A_rand = new int[SIZE_MATRICI_COL_A, SIZE_MATRICI_ROW_A]  ;//{ {1, 2}, {3, 4}, {5, 6} };
+//    int[,] matrica_B_rand = new int[SIZE_MATRICI_COL_B, SIZE_MATRICI_ROW_B] ;// { {1, 2, 3}, { 4, 5, 6 } };
+//    int[,] matrica_C = new int[SIZE_MATRICI_COL_A, SIZE_MATRICI_ROW_B] ;
+
+//    for (int i = 0; i < SIZE_MATRICI_COL_A; i++) { for (int j = 0; j < SIZE_MATRICI_ROW_A; j++) { matrica_A_rand[i,j] = rand.Next(0, 21); } }//инициализация массива 1
+//    for (int i = 0; i < SIZE_MATRICI_COL_B; i++) { for (int j = 0; j < SIZE_MATRICI_ROW_B; j++) { matrica_B_rand[i,j] = rand.Next(0, 99); } }//инициализация массива 2
+//    //for (int i = 0; i < SIZE_MATRICI_COL_A; i++) { for (int j = 0; j < SIZE_MATRICI_ROW_B; j++) { matrica_C[i,j] = 0; } }
+
+//    for (int i = 0; i < SIZE_MATRICI_COL_A; i++){
+//        for (int j = 0; j < SIZE_MATRICI_ROW_A; j++) { Write($"   {matrica_A_rand[i, j]} "); } WriteLine(); } WriteLine();//вывод на экран массива 1
+
+//    for (int i = 0; i < SIZE_MATRICI_COL_B; i++) {
+//        for (int j = 0; j < SIZE_MATRICI_ROW_B; j++) { Write($"   {matrica_B_rand[i, j]} "); } WriteLine(); } WriteLine();//вывод на экран массива 2
 
 
+////#########################################################################################################################
+//WriteLine("Уможение матриц друг на друга ");
+//for (int i = 0; i < SIZE_MATRICI_COL_A; i++){//получаем доступ к ячейкам  матрицы С// умножение матриц
+//        for (int j = 0; j < SIZE_MATRICI_ROW_B; j++){
+//            for (int k = 0; k < SIZE_MATRICI_ROW_A; k++){
+//                matrica_C[i, j] += matrica_A_rand[i, k] * matrica_B_rand[k, j];
+//            }
+//        }
+//    }
+//    for (int i = 0; i < SIZE_MATRICI_COL_A; i++){
+//        for (int j = 0; j < SIZE_MATRICI_ROW_B; j++) { Write($"   {matrica_C[i, j]} "); }WriteLine();
+//    }WriteLine();
+////#########################################################################################################################
+////#########################################################################################################################
+//WriteLine("Сложение матриц ");
+//int[,] matrica_A = new int[SIZE_MATRICI, SIZE_MATRICI];//{ {1, 2}, {3, 4}, {5, 6} };
+//int[,] matrica_B = new int[SIZE_MATRICI, SIZE_MATRICI];// { {1, 2, 3}, { 4, 5, 6 } };
+//int[,] matrica_D = new int[SIZE_MATRICI, SIZE_MATRICI];// { {1, 2, 3}, { 4, 5, 6 } };
+//for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { matrica_A[i, j] = rand.Next(0, 21); } }//инициализация массива 1
+//for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { matrica_B[i, j] = rand.Next(0, 99); } }//инициализация массива 2
+//for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { Write($"   {matrica_A[i, j]} "); }WriteLine();}WriteLine();//вывод на экран массива 1
+//for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { Write($"   {matrica_B[i, j]} "); }WriteLine();}WriteLine();//вывод на экран массива 2
+//for (int i = 0; i < SIZE_MATRICI; i++) {//получаем доступ к ячейкам  матрицы С// умножение матриц
+//    for (int j = 0; j < SIZE_MATRICI; j++){
+//            matrica_D[i, j] = matrica_A[i, j] + matrica_B[i, j];
+//    }
+//}
+
+//for (int i = 0; i < SIZE_MATRICI; i++){for (int j = 0; j < SIZE_MATRICI; j++) { Write($"   {matrica_D[i, j]} "); }WriteLine();}WriteLine();//вывод на экран массива 3
+
+////#########################################################################################################################
+////#########################################################################################################################
+//WriteLine("Умножение матрицы на число ");
+//for (int i = 0; i < SIZE_MATRICI_COL_A; i++){//получаем доступ к ячейкам  матрицы С// умножение матрицы на число
+//        for (int j = 0; j < SIZE_MATRICI_ROW_A; j++){
+//                 matrica_A_rand[i, j] *= 2;
+//        }
+//    }
+
+//    for (int i = 0; i < SIZE_MATRICI_COL_A; i++){
+//         for (int j = 0; j < SIZE_MATRICI_ROW_A; j++) { Write($"   {matrica_A_rand[i, j]} "); } WriteLine(); } WriteLine();
+////#########################################################################################################################           
 
 
 
@@ -198,9 +262,27 @@ WriteLine(rs);
 //Пользователь с клавиатуры вводит в строку арифметическое выражение. Приложение должно посчитать
 //его результат.Необходимо поддерживать только две
 //операции: + и –.
+//WriteLine("Введите выражение:");
+//string? operation = ReadLine();
+//string[] xz = operation.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+//double Left = Convert.ToDouble(xz[0]);
+//char operators = Convert.ToChar(xz[1]);
+//double Right = Convert.ToDouble(xz[2]);
+//double otvet = 0;
+//switch (operators)
+//{
+//    case '+': otvet = Left + Right; break;
+//    case '-': otvet = Left - Right; break;
+//    case '*': otvet = Left * Right; break;
+//    case '/': otvet = Left / Right; break;
+//    default:
+//        break;
+//}
 
-
-
+//WriteLine(Left);
+//WriteLine(operators);
+//WriteLine(Right);
+//WriteLine(otvet);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -212,6 +294,14 @@ WriteLine(rs);
 //day for walking.i will try to walk near the sea».
 //Результат работы приложения: «Today is a good day
 //for walking.I will try to walk near the sea».
+string stroka = "«today is a good day for walking.i will try to walk near the sea».";
+WriteLine(stroka);
+char[] delimiterChars = { ',', '.', ':', '\t' };
+string[] podstroki = stroka.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
+foreach (var word in podstroki)
+{
+    WriteLine(word);
+}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
