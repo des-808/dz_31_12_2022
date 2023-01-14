@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Text;
 using static System.String;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 var rand = new Random();
 //Задание 1
@@ -213,7 +214,7 @@ var rand = new Random();
 
 
 ////#########################################################################################################################
-//WriteLine("Уможение матриц друг на друга ");
+//WriteLine("Уможение матриц друг на друга ");//матрицы должны быть противоположными по колличеству столбцов и строк
 //for (int i = 0; i < SIZE_MATRICI_COL_A; i++){//получаем доступ к ячейкам  матрицы С// умножение матриц
 //        for (int j = 0; j < SIZE_MATRICI_ROW_B; j++){
 //            for (int k = 0; k < SIZE_MATRICI_ROW_A; k++){
@@ -226,7 +227,7 @@ var rand = new Random();
 //    }WriteLine();
 ////#########################################################################################################################
 ////#########################################################################################################################
-//WriteLine("Сложение матриц ");
+//WriteLine("Сложение матриц ");//матрицы должны быть одинаковыми по колличеству столбцов и строк
 //int[,] matrica_A = new int[SIZE_MATRICI, SIZE_MATRICI];//{ {1, 2}, {3, 4}, {5, 6} };
 //int[,] matrica_B = new int[SIZE_MATRICI, SIZE_MATRICI];// { {1, 2, 3}, { 4, 5, 6 } };
 //int[,] matrica_D = new int[SIZE_MATRICI, SIZE_MATRICI];// { {1, 2, 3}, { 4, 5, 6 } };
@@ -234,7 +235,7 @@ var rand = new Random();
 //for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { matrica_B[i, j] = rand.Next(0, 99); } }//инициализация массива 2
 //for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { Write($"   {matrica_A[i, j]} "); }WriteLine();}WriteLine();//вывод на экран массива 1
 //for (int i = 0; i < SIZE_MATRICI; i++) { for (int j = 0; j < SIZE_MATRICI; j++) { Write($"   {matrica_B[i, j]} "); }WriteLine();}WriteLine();//вывод на экран массива 2
-//for (int i = 0; i < SIZE_MATRICI; i++) {//получаем доступ к ячейкам  матрицы С// умножение матриц
+//for (int i = 0; i < SIZE_MATRICI; i++) {//получаем доступ к ячейкам  матрицы С// сложение матриц
 //    for (int j = 0; j < SIZE_MATRICI; j++){
 //            matrica_D[i, j] = matrica_A[i, j] + matrica_B[i, j];
 //    }
@@ -295,18 +296,36 @@ var rand = new Random();
 //Результат работы приложения: «Today is a good day
 //for walking.I will try to walk near the sea».
 string stroka = "«today is a good day for walking.i will try to walk near the sea».";
+
 WriteLine(stroka);
 char[] delimiterChars = { ',', '.', ':', '\t' };
 string[] podstroki = stroka.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
-foreach (var word in podstroki)
-{
-    WriteLine(word);
-}
+//foreach (var word in podstroki) { WriteLine(word); }
+char[] char_str = stroka.ToCharArray();
 
+for (int i = 0; i < podstroki.Length; i++)
+{
+    if (podstroki[i].Any(c => char.IsLetter(c)))
+    {
+        podstroki[i] = podstroki[i].Substring(0, 1) + podstroki[i].Substring(1, 1).ToUpper() + podstroki[i].Substring(2).ToLower();
+    }
+    else { podstroki[i] = podstroki[i].Substring(0, 1).ToUpper() + podstroki[i].Substring(1).ToLower(); }
+}
+//string updatedName = stroka.Substring(0, 1).ToUpper() + stroka.Substring(1).ToLower();
+foreach (var word in podstroki) { WriteLine(word); }
+
+//for (int i = 0;i<stroka.Length-1 ;i++)
+//{
+//    //stroka[i] = stroka.ToString();
+//}
+//foreach (var word in stroka)
+//{
+//    Write(word);
+//}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //Задание 7
-//Создайте приложение, проверяющее текст на недопустимые слова. Если недопустимое слово найдено, оно
+//Создайте приложение, проверяющее текст на недопустимые слова. Если недопустимое слово найдено, оно
 //должно быть заменено на набор символов*. По итогам
 //работы приложения необходимо показать статистику
 //действий. 
